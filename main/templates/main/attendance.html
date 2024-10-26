@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Attendance
+        </title>
+    </head>
+    <body>
+        <h1>
+            Click the button to attend the class!!!
+        </h1>
+        <form method="POST">
+            {% csrf_token %}
+            <button>Submit</button>
+            {% if status == 2 %}
+                <h2>
+                    You have successfully attended the class!!!
+                </h2>
+            {% endif %}
+            {% if status == 1 %}
+                <h2>
+                    You have already attended the class!!!
+                </h2>
+            {% endif %}
+        
+        </form>
+        <form method="POST" action = "{% url 'logout' %}">
+            {% csrf_token %}
+            <button>Logout</button>
+        </form>
+
+    </body>
+</html>
